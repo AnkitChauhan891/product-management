@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "af33376a-9a52-402b-bf1c-fce522fda061",
+		"name": "Product Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27893249"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"vanitachauhan@radixweb.com\",\n    \"password\": \"Password@1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Vanita Chauhan\",\n    \"email\": \"vanitachauhan@radixweb.com\",\n    \"password\": \"Password@1\",\n    \"role\": \"admin_role_secret\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmFuaXRhIENoYXVoYW4iLCJlbWFpbCI6InZhbml0YWNoYXVoYW5AcmFkaXh3ZWIuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzgyNTE1OTUwLCJleHAiOjE3ODI1MTk1NTB9.TNGS1cfCfBI8GIX5fjS-pFVu9ctf37DJax1bHz9OfTI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test7\",\n    \"description\": \"Test Product\",\n    \"price\": 2.5,\n    \"stock\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmFuaXRhIENoYXVoYW4iLCJlbWFpbCI6InZhbml0YWNoYXVoYW5AcmFkaXh3ZWIuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzgyNTE5OTM3LCJleHAiOjE3ODI1MjM1Mzd9.Ws8I0bEf3hSD0H8BrcfmZAxStn39WLJ-nspDWtPOKjU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Standard Bussiness Card update\",\n    \"description\": \"Standard Bussiness Card update\",\n    \"price\": 7.5,\n    \"stock\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/products/6a3f0f0b22dbf595bbf4eac9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"products",
+						"6a3f0f0b22dbf595bbf4eac9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/products?page=2&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/products/6a3f0f0b22dbf595bbf4eac9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"products",
+						"6a3f0f0b22dbf595bbf4eac9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Specific Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/products/6a3f0f0b22dbf595bbf4eac9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"products",
+						"6a3f0f0b22dbf595bbf4eac9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
